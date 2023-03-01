@@ -1,14 +1,17 @@
 <?php
 
 class DBConnection{
+    private $hostname = 'localhost';
+    private $user = "root";
+    private $pass = '';
+    private $db = 'btth01_cse485';
     private $conn=null;
 
-    public function __construct(){
-         // B1. Kết nối DB Server
+    public function construct(){
          try {
-            $this->conn = new PDO('mysql:host=localhost;dbname=demo_;port=3306', 'root','');
+            $this->conn = new mysqli($this->hostname,$this->user,$this->pass,$this->db);
         } catch (PDOException $e) {
-            echo $e->getMessage();
+            echo $e->getMessage('Kết nối thất bại');
         }
     }
 

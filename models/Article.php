@@ -17,4 +17,5 @@ class Article{
     public function getTitle(){
         return $this->title;
     }
+    
 }
